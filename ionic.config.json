@@ -1,0 +1,8 @@
+{
+  "name": "smart-coach",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular",
+  "pro_id": "a23ddec7"
+}
