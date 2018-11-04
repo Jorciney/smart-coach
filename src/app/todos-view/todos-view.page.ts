@@ -1,15 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {FirebaseService} from '../services/firebase.service';
 
 @Component({
-  selector: 'app-todos-view',
-  templateUrl: './todos-view.page.html',
-  styleUrls: ['./todos-view.page.scss'],
+    selector: 'app-todos-view',
+    templateUrl: './todos-view.page.html',
+    styleUrls: ['./todos-view.page.scss']
 })
 export class TodosViewPage implements OnInit {
+    allTodos: Array<any>;
 
-  constructor() { }
+    constructor(public firebaseService: FirebaseService) {
+    }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+        this.firebaseService.getAllTodosFromDB().subscribe(todos => {
+            console.log(todos);
+            this.allTodos = todos;
+        });
+    }
 
 }
