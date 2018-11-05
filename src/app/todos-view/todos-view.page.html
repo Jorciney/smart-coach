@@ -1,19 +1,21 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>todos-view</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title>todos-view</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-  <ion-list>
-    <ion-item-sliding>
-      <ion-item *ngFor="let todo of allTodos" >
-        <h2> {{todo}}
-        </h2>
-      </ion-item>
-    </ion-item-sliding>
-  </ion-list>
+    <ion-button (click)="signIn()">Sign in</ion-button>
+    <ion-button (click)="logout()">logout</ion-button>
 
+    <ion-list>
+        <ion-item-sliding>
+            <ion-item *ngFor="let todo of allTodos">
+                <h2> {{todo.title}}
+                </h2>
+            </ion-item>
+        </ion-item-sliding>
+    </ion-list>
 
 
 </ion-content>
