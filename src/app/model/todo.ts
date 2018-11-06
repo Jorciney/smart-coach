@@ -1,6 +1,6 @@
 export class Todo {
-    title: string;
-    date: string;
+    title?: string;
+    date?: string;
     category ? = 'general';
     complete ? = false;
     children ? = [];
