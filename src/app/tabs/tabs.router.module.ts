@@ -15,7 +15,7 @@ const routes: Routes = [
             {
                 path: '',
                 redirectTo: '/tabs/(home:home)',
-                pathMatch: 'full',
+                pathMatch: 'full'
             },
             {path: 'home', outlet: 'home', component: HomePage},
             {path: 'about', outlet: 'about', component: AboutPage},

@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {AngularFireAuth} from '@angular/fire/auth';
 import * as firebase from 'firebase';
+import {User} from 'firebase';
 import {Observable} from 'rxjs';
 import {Router} from '@angular/router';
 
@@ -27,7 +28,12 @@ export class AuthenticationService {
     }
 
     logout() {
-        this.firebaseAuth.auth.signOut()
-            .then(res => this.router.navigate(['/']));
+        return this.firebaseAuth.auth.signOut()
+            .then(res => this.router.navigate(['/']))
+            .then(res => console.log('User signed out.'));
+    }
+
+    getUser(): Observable<User> {
+        return this.firebaseAuth.authState;
     }
 }

@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {FirebaseService} from '../services/firebase.service';
-import {AuthenticationService} from '../services/authentication.service';
+import {Todo} from '../model/todo';
 
 @Component({
     selector: 'app-todos-view',
@@ -8,9 +8,10 @@ import {AuthenticationService} from '../services/authentication.service';
     styleUrls: ['./todos-view.page.scss']
 })
 export class TodosViewPage implements OnInit {
-    allTodos: Array<any>;
+    allTodos: Array<Todo>;
+    @Input() todo: Todo = new Todo();
 
-    constructor(public firebaseService: FirebaseService, private authenticationService: AuthenticationService) {
+    constructor(public firebaseService: FirebaseService) {
     }
 
     ngOnInit() {
@@ -19,13 +20,7 @@ export class TodosViewPage implements OnInit {
         });
     }
 
-
-    signIn() {
-        this.authenticationService.signingWithGoogle();
+    deleteTodo(todo: Todo): void{
+        this.firebaseService.deleteTodo(todo.title);
     }
-
-    logout() {
-        this.authenticationService.logout();
-    }
-
 }
