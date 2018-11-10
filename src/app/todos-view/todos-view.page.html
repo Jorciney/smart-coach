@@ -5,25 +5,17 @@
 </ion-header>
 
 <ion-content padding>
-    <ion-list  #slidingList>
-        <ion-item-sliding animateItemSliding>
-            <div *ngFor="let todo of allTodos">
+    <ion-list #slidingList>
+            <ion-item-sliding *ngFor="let todo of allTodos">
                 <ion-item>
-                    <h2> {{todo.title}} </h2>
+                    <h2>{{todo.title}}</h2>
                 </ion-item>
-                <ion-item-options side="end">
-                    <button ion-button color="primary" (click)="deleteTodo(todo)">
-                        <ion-icon name="trash"></ion-icon>
+                <ion-item-options>
+                    <button ion-button class="danger column" (click)="deleteTodo(todo)">
+                        <ion-icon class="list-icons" name="trash"></ion-icon>
                         Delete
                     </button>
-                    <button ion-button color="secondary">
-                        <ion-icon name="checkmark-circle"></ion-icon>
-                        Complete
-                    </button>
                 </ion-item-options>
-            </div>
-        </ion-item-sliding>
+            </ion-item-sliding>
     </ion-list>
-
-
 </ion-content>
