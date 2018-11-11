@@ -1,11 +1,19 @@
-.danger{
+.danger {
   background-color: #f04141;
   color: white;
 }
-.column{
+
+.column {
   display: inline-grid;
   text-align: -webkit-center;
 }
-.list-icons{
+
+.list-icons {
   font-size: 8vw;
+}
+
+.header-image {
+  background-size: cover;
+  background: url(https://ununsplash.imgix.net/photo-1421091242698-34f6ad7fc088?fit=crop&fm=jpg&h=650&q=75&w=950) center;
+  height: 50vw;
 }
