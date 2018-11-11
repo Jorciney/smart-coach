@@ -11,6 +11,7 @@ import {AngularFireAuthModule} from '@angular/fire/auth';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {environment} from '../environments/environment';
+import {GooglePlus} from '@ionic-native/google-plus/ngx';
 
 @NgModule({
     declarations: [AppComponent],
@@ -24,6 +25,7 @@ import {environment} from '../environments/environment';
     providers: [
         StatusBar,
         SplashScreen,
+        GooglePlus,
         {provide: RouteReuseStrategy, useClass: IonicRouteStrategy}
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],

@@ -5,13 +5,13 @@
 </ion-header>
 
 <ion-content padding>
-    <ion-list #slidingList>
-            <ion-item-sliding *ngFor="let todo of allTodos">
+    <ion-list>
+            <ion-item-sliding *ngFor="let todo of allTodos" #slidingItem>
                 <ion-item>
                     <h2>{{todo.title}}</h2>
                 </ion-item>
                 <ion-item-options>
-                    <button ion-button class="danger column" (click)="deleteTodo(todo)">
+                    <button ion-button class="danger column" (click)="deleteTodo(slidingItem, todo)">
                         <ion-icon class="list-icons" name="trash"></ion-icon>
                         Delete
                     </button>

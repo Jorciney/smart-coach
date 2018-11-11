@@ -1,7 +1,7 @@
-import {ChangeDetectorRef, Component, Input, OnInit, ViewChild} from '@angular/core';
+import {ChangeDetectorRef, Component, Input, OnInit} from '@angular/core';
 import {FirebaseService} from '../services/firebase.service';
 import {Todo} from '../model/todo';
-import {List} from '@ionic/angular';
+import {ItemSliding} from '@ionic/angular';
 
 @Component({
     selector: 'app-todos-view',
@@ -11,7 +11,6 @@ import {List} from '@ionic/angular';
 export class TodosViewPage implements OnInit {
     allTodos: Array<Todo>;
     @Input() todo: Todo = new Todo();
-    @ViewChild('slidingList') slidingList: List;
 
     constructor(public firebaseService: FirebaseService,
                 private changeDetector: ChangeDetectorRef) {
@@ -25,12 +24,12 @@ export class TodosViewPage implements OnInit {
         });
     }
 
-    async deleteTodo(todo: Todo) {
+    deleteTodo(slidingItem: ItemSliding, todo: Todo) {
+        slidingItem.close();
         this.firebaseService.deleteTodo(todo.title).subscribe(isDeleted => {
             if (isDeleted) {
                 console.log('Todo deleted');
             }
         });
-        await this.slidingList.closeSlidingItems();
     }
 }
